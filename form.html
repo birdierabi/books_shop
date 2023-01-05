@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preload" href="assets/fonts/roboto-v30-latin-regular.woff2" as="font">
+  <link rel="preload" href="assets/fonts/roboto-v30-latin-700.woff2" as="font">
+  <link rel="stylesheet" href="assets/normalize.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="wrapper wrapper--form">
+    <header class="page-header">
+      <a href="index.html">
+        <img class="icon-wrapper" src="assets/svg/logo.svg">
+      </a>
+    </header>
+    <main class="page-main">
+      <h1 class="title">Checkout</h1>
+      <form class="form" id="form">
+        <div class="form-wrapper">
+          <div>
+            <div class="form-inner">
+              <label class="form-label" for="name">Enter your name:</label>
+              <input class="form-input" type="text" name="name" id="name" placeholder="Name" minlength="4" pattern="^[A-Za-zА-Яа-яЁё]+$" autocomplete="off" required>
+            </div>
+            <div class="form-inner">
+              <label class="form-label" for="email">Enter your surname:</label>
+              <input class="form-input" type="text" name="surname" id="surname" placeholder="Surname" minlength="5" pattern="^[A-Za-zА-Яа-яЁё]+$" autocomplete="off" required>
+            </div>
+            <div class="form-inner">
+              <label class="form-label" for="date">Delivery date:</label>
+              <input class="form-input" type="date" name="date" id="date" placeholder="Delivery date" required>
+            </div>
+            <div class="form-inner">
+              <label class="form-label" for="street">Street:</label>
+              <input class="form-input" type="text" name="street" id="street" placeholder="Street" minlength="5" pattern="^[A-Za-zА-Яа-яЁё0-9\s]+$" autocomplete="off" required>
+            </div>
+            <div class="form-inner">
+              <label class="form-label" for="house">House number:</label>
+              <input class="form-input" type="text" name="house" id="house" placeholder="House number" pattern="^[0-9]+$" autocomplete="off" required>
+            </div>
+            <div class="form-inner">
+              <label class="form-label" for="flat">Flat number:</label>
+              <input class="form-input" type="text" name="flat" id="flat" placeholder="Flat number" pattern="^(?!-)[0-9-]+" autocomplete="off" required>
+            </div>
+          </div>
+          <div>
+            <fieldset>
+              <legend class="form-legend">Please select your preferred payment method:</legend>
+              <input type="radio" id="card" name="payment" value="card" checked required>
+              <label for="card">Card</label>
+              <input type="radio" id="cash" name="payment" value="cash">
+              <label for="cash">Cash</label>
+            </fieldset>
+            <fieldset>
+              <legend class="form-legend">Choose two gifts:</legend>
+              <div>
+                <input type="checkbox" id="gift1" name="gift1" checked>
+                <label for="gift1">pack as a gift</label>
+              </div>
+              <div>
+                <input type="checkbox" id="gift2" name="gift2" checked>
+                <label for="gift2">add postcard</label>
+              </div>
+              <div>
+                <input type="checkbox" id="gift3" name="gift3">
+                <label for="gift3">provide 2% discount to the next time</label>
+              </div>
+              <div>
+                <input type="checkbox" id="gift4" name="gift4">
+                <label for="gift4">branded pen or pencil</label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <button class="btn btn--submit" type="submit" disabled>Place An Order</button>
+      </form>
+    </main>
+  </div>
+  <script defer type="module" src="form.js"></script>
+</body>
+</html>

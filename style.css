@@ -1,0 +1,373 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('assets/fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('assets/fonts/roboto-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('assets/fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('assets/fonts/roboto-v30-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Roboto", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.15;
+  color: #ffffff;
+
+  background-color: #242121;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.page-header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #292828;
+}
+
+.page-aside {
+  grid-area: aside;
+  margin-top: 40px;
+  border-left: 1px solid #393939;
+  border-top: 1px solid #393939;
+  border-top-left-radius: 5px;
+}
+
+.page-main {
+  grid-area: main;
+  padding: 50px 20px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 9fr 4fr;
+  grid-template-areas:
+    "header header"
+    "main aside";
+}
+
+.wrapper--form {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 25px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 100%;
+  max-width: 255px;
+  padding: 15px;
+  transition: 0.5s ease-in;
+  cursor: move;
+  border-radius: 10px;
+  background-color: #292828;
+}
+
+.book-title {
+  margin: 0;
+  max-width: 200px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.book-author {
+  margin: 0;
+  text-align: center;
+  max-width: 200px;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.book-price {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 17px;
+}
+
+.book-img {
+  display: block;
+  max-height: 280px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  filter: drop-shadow(0px 7px 4px rgba(110, 110, 110, 0.25));
+}
+
+.book-btn-wrapper {
+  display: flex;
+  gap: 2px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 5px;
+  color: #ffffff;
+  background-color: rgba(244, 113, 168, 0.38);
+  border: 0;
+  border-radius: 12px;
+  transition: 0.5s ease-in;
+  cursor: pointer;
+}
+
+.btn--main {
+  width: 100px;
+  border-radius: 0;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.btn:hover {
+  background-color: #3B647A;
+}
+
+.btn--more {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.btn--submit {
+  padding: 15px 110px;
+  font-size: 18px;
+}
+
+.btn--submit:disabled {
+  background-color: #808080;
+}
+
+.icon-wrapper--bag {
+  width: 34px;
+}
+
+.modal {
+  display: none;
+  content: '';
+  position: absolute;
+  z-index: 5;
+  left: 286px;
+  top: -10px;
+  padding: 30px 15px;
+  width: 400px;
+  height: fit-content;
+  background: #3B647A;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.modal--open {
+  display: block;
+}
+
+.modal-title {
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.modal-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+
+.modal-close:hover {
+  opacity: 0.5;
+}
+
+.form-wrapper {
+  display: flex;
+  gap: 80px;
+}
+
+.form-inner {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  min-height: 38px;
+}
+
+.form-label {
+  display: block;
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.form-input {
+  display: flex;
+  margin: 0;
+  padding: 7px 10px;
+  width: 250px;
+  background: #373737;
+  border: 1px solid #373737;
+  border-radius: 4px;
+  font-size: 17px;
+  line-height: 1.15;
+  color: #808080;
+  outline: 0;
+}
+
+.form-legend {
+  display: block;
+  margin-bottom: 7px;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.invalid-text {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  color: #dd526a;
+  font-size: 12px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 50px 30px 20px;
+}
+
+.cart-title {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #292828;
+}
+
+.cart-img {
+  max-width: 100px;
+  height: fit-content;
+}
+
+.cart-inner {
+  margin-left: 15px;
+}
+
+.cart-book-title {
+  max-width: 270px;
+  font-size: 16px;
+}
+
+.cart-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+
+.cart-close:hover {
+  opacity: 0.5;
+}
+
+.cart-total {
+  order: 3;
+  font-size: 18px;
+}
+
+.cart-btn {
+  order: 4;
+  text-decoration: none;
+}
+
+.total-info {
+  position: absolute;
+  z-index: 2000;
+  background-color: #3B647A;
+  top: 50%;
+  padding: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
