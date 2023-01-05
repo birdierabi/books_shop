@@ -9,7 +9,7 @@ const list = createElement(main, 'ul', ['books-list']);
 
 function createHeader(fragment) {
   const header = createElement(fragment, 'header', ['page-header']);
-  createElement(header, 'img', ['page-header__logo'], '', {'src': '../assets/svg/logo.svg'});
+  createElement(header, 'img', ['page-header__logo'], '', {'src': './assets/svg/logo.svg'});
 }
 
 function createCart(fragment) {
@@ -27,7 +27,7 @@ function createModal(event, card) {
   const modal = createElement(item, 'div', ['modal']);
   createElement(modal, 'h2', ['modal-title'], card.title);
   createElement(modal, 'p', ['modal-text'], card.description);
-  const closeIconWrapper = createElement(modal, 'img', ['modal-close'], '', {'src': '../assets/svg/close.svg'});
+  const closeIconWrapper = createElement(modal, 'img', ['modal-close'], '', {'src': './assets/svg/close.svg'});
   closeIconWrapper.addEventListener('click', toggleModal);
 }
 
@@ -163,7 +163,7 @@ function createBagElement(card) {
   createElement(inner, 'p', ['cart-author'], card.author);
   createElement(inner, 'p', ['cart-qty'], `QTY: ${card.count}`);
   createElement(inner, 'p', ['cart-price'], `$${card.price}.00`);
-  const closeIconWrapper = createElement(item, 'img', ['cart-close'], '', {'src': '../assets/svg/close.svg'});
+  const closeIconWrapper = createElement(item, 'img', ['cart-close'], '', {'src': './assets/svg/close.svg'});
   closeIconWrapper.addEventListener('click', (event) =>
     removeBook(event, card)
   );

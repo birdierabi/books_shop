@@ -70,7 +70,7 @@ function createTotalInfoModal(event) {
       'flat'
     )}. Customer ${formData.get('name')} ${formData.get('surname')}.`
   );
-  const closeIconWrapper = createElement(modal, 'img', ['modal-close'], '', {'src': '../assets/svg/close.svg'});
+  const closeIconWrapper = createElement(modal, 'img', ['modal-close'], '', {'src': './assets/svg/close.svg'});
   closeIconWrapper.addEventListener('click', submitForm);
 }
 
