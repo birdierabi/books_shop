@@ -63,7 +63,7 @@ function createTotalInfoModal(event) {
   const modal = createElement(
     main,
     'div',
-    'total-info',
+    ['total-info'],
     `The order created. The delivery address is ${formData.get(
       'street'
     )} street house ${formData.get('house')} flat ${formData.get(
